@@ -1,0 +1,140 @@
+body{
+    font-family: sans-serif;
+}
+
+.container{
+    background-color: #f2eeed;
+    width: 34%;
+    height: 260px;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center; /* Centraliza o conteúdo dentro do container */
+}
+
+.container h1{
+    color: #21294d;
+    text-align: center;
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.forms{
+    padding: 10px;
+}
+
+.forms .input input{
+    width: 80%; 
+    margin: 10px auto; /* Centraliza os inputs horizontalmente */
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid #21294d;
+    box-sizing: border-box; 
+}
+
+.glow-on-hover {
+    margin-top: 14px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* media queries */
+@media (max-width: 800px) {
+    .container{
+        background-color: #f2eeed;
+        width: 220px;
+        height: 260px;
+        margin: 60% auto;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center; /* Centraliza o conteúdo dentro do container */
+    }
+    .glow-on-hover {
+        margin-top: 14px;
+        width: 100px;
+        height: 40px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+}
